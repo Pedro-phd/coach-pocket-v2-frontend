@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ds"
 import {
   Card,
   CardContent,
@@ -14,7 +14,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Button } from "./ui/button"
 import { Link } from "lucide-react"
 
 export default function MembersTable(props: { className?: string}) {
