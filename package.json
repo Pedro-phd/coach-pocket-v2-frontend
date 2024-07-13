@@ -16,10 +16,12 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.2",
     "globals": "^15.8.0",
+    "imask": "^7.6.1",
     "lucide-react": "^0.408.0",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-imask": "^7.6.1",
     "react-use-measure": "^2.1.1",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
