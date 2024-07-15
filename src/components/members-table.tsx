@@ -1,5 +1,17 @@
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ds'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import {
+	Button,
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ds'
 import { Link } from 'lucide-react'
 
 export default function MembersTable(props: { className?: string }) {
