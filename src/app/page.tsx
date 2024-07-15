@@ -1,50 +1,60 @@
 'use client'
+import logo from '@/../assets/logos/logo-base-256x256.png'
+import { Button } from '@/components/ds'
 import { cn } from '@/lib/utils'
+import { MotionConfig, motion } from 'framer-motion'
 import { Manrope } from 'next/font/google'
-import { motion } from 'framer-motion';
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
+const manrope = Manrope({ weight: ['700', '300', '500'], subsets: ['latin'] })
 
-const manrope = Manrope({ weight: ['700', '300', '500'], subsets: ['latin']  })
+const transition = {
+	ease: 'easeInOut',
+	duration: 1.5,
+}
 
 export default function Home() {
-  return (
-   <main className="flex flex-col gap-2 items-center justify-center h-full space-x-2 p-4">
-      <motion.h2
-        initial={{ opacity: 0, filter: 'blur(5px)' }}
-        whileInView={{ opacity: 1, filter: 'blur(0px)' }}
-        transition={{ ease: 'easeInOut', duration: .3 }}
-        className={
-          cn("scroll-m-20 text-2xl text-center md:text-4xl tracking-tight lg:text-5xl text-zinc-800", 
-          manrope.className)}>
-        Bem-vindo, novamente Pedro!
-      </motion.h2>
-      <div className='flex gap-4'>
-
-      <motion.h3 
-        className={cn("scroll-m-20 text-xl md:text-2xl tracking-tight text-zinc-500", manrope.className)}
-        initial={{ y: 10, opacity: 0 }}
-        whileInView={{ y:0, opacity: 1 }}
-        transition={{ ease: 'easeInOut', duration: .5, delay: .2 }}
-      >
-        113 <span className='text-sm md:text-lg'>Alunos</span>
-      </motion.h3>
-      <motion.h3
-        className={cn("scroll-m-20 text-xl md:text-2xl tracking-tight text-zinc-500", manrope.className)}
-        initial={{ y: 10, opacity: 0 }}
-        whileInView={{ y:0, opacity: 1 }}
-        transition={{ ease: 'easeInOut', duration: .5, delay: .4 }} 
-      >
-        78 <span className='text-sm md:text-lg'>Treinos</span>
-      </motion.h3>
-      <motion.h3
-        className={cn("scroll-m-20 text-xl md:text-2xl tracking-tight text-zinc-500", manrope.className)}
-        initial={{ y: 10, opacity: 0 }}
-        whileInView={{ y:0, opacity: 1 }}
-        transition={{ ease: 'easeInOut', duration: .5, delay: .6 }} 
-      >
-        43 <span className='text-sm md:text-lg'>Dietas</span>
-      </motion.h3>
-      </div>
-   </main>
-  );
+	const router = useRouter()
+	return (
+		<>
+			<div className="px-6 md:px-0">
+				<header className="w-full lg:w-2/3 flex h-24 items-center justify-between mx-auto z-10">
+					<div className="flex items-center gap-1">
+						<Image alt="logo coach pocket" src={logo} width={50} height={50} />
+						<span className="text-brand font-semibold text-xl">CoachPocket</span>
+					</div>
+				</header>
+			</div>
+			<MotionConfig transition={transition}>
+				<motion.div initial={{ opacity: 0, filter: 'blur(5px)' }} whileInView={{ opacity: 1, filter: 'blur(0px)' }}>
+					<main className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+						<div className="hidden sm:mb-8 sm:flex sm:justify-center">
+							<div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10">
+								113 Alunos 78 Treinos 43 Dietas
+							</div>
+						</div>
+						<div className="text-center">
+							<h1
+								className={cn(
+									'scroll-m-20 text-4xl font-bold tracking-tight sm:text-6xl text-gray-900',
+									manrope.className,
+								)}
+							>
+								Uma plataforma para seus alunos
+							</h1>
+							<p className="mt-6 text-lg leading-8 text-gray-600">
+								Seus alunos são a base do seu negócio, dê a eles uma plataforma que facilite a conquista do seus sonhos.
+							</p>
+							<div className="mt-10 flex items-center justify-center gap-x-6">
+								<Button type="button" variant="brand" onClick={() => router.push('/dashboard/members')}>
+									Começar agora
+								</Button>
+							</div>
+						</div>
+					</main>
+				</motion.div>
+			</MotionConfig>
+		</>
+	)
 }
