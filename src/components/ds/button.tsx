@@ -6,7 +6,7 @@ import { Loader2 } from 'lucide-react'
 import * as React from 'react'
 
 const buttonVariants = cva(
-	'inline-flex items-center rounded-md px-2.5 py-1.5 text-sm disabled:pointer-events-none disabled:opacity-50',
+	'inline-flex items-center rounded-md px-2.5 py-1.5 text-sm justify-center font-medium disabled:pointer-events-none disabled:opacity-50',
 	{
 		variants: {
 			variant: {
@@ -41,7 +41,7 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, asChild = false, children, loading = false, ...props }, ref) => {
+	({ className, variant, size, asChild = false, children, loading = false, tooltip, ...props }, ref) => {
 		const Comp = asChild ? Slot : 'button'
 		return (
 			<Tooltip>
@@ -51,9 +51,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 						{children}
 					</Comp>
 				</TooltipTrigger>
-				<TooltipContent>
-					<p>{props.tooltip}</p>
-				</TooltipContent>
+				{tooltip && (
+					<TooltipContent>
+						<p>{tooltip}</p>
+					</TooltipContent>
+				)}
 			</Tooltip>
 		)
 	},
