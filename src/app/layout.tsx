@@ -3,12 +3,13 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/react"
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'Coach Pocket',
-	description: 'Coach Pocket | Treinar ficou mais facil!',
+	description: 'Coach Pocket | Treinar ficou mais fácil!',
 }
 
 export default function RootLayout({
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
+			
 			<Analytics />
+			<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? ""} />
 			<TooltipProvider>
 				<body className={inter.className}>
 					<div className="absolute top-0 -z-10 h-full w-full bg-white">
