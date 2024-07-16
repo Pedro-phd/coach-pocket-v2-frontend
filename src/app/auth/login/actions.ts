@@ -7,12 +7,11 @@ import { headers } from 'next/headers'
 
 export async function signInWithGoogle() {
 	const supabase = createClient()
-	const origin = headers().get('origin')
 
 	const { data, error } = await supabase.auth.signInWithOAuth({
 		provider: 'google',
 		options: {
-			redirectTo: `${origin}/auth/callback`,
+			redirectTo: `${process.env.NEXT_PUBLIC_FRONT_URL}/auth/callback`,
 			queryParams: {
 				access_type: 'offline',
 				prompt: 'consent',
@@ -30,12 +29,11 @@ export async function signInWithGoogle() {
 
 export async function signInWithFacebook() {
 	const supabase = createClient()
-	const origin = headers().get('origin')
 
 	const { data, error } = await supabase.auth.signInWithOAuth({
 		provider: 'facebook',
 		options: {
-			redirectTo: `${origin}/auth/callback`,
+			redirectTo: `${process.env.NEXT_PUBLIC_FRONT_URL}/auth/callback`,
 		},
 	})
 
