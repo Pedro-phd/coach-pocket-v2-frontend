@@ -13,7 +13,9 @@ export async function middleware(request: NextRequest) {
 
 	setCookie('token', session?.access_token as string, { res: response, req: request })
 
-	return await updateSession(request)
+	if (request.nextUrl.pathname.startsWith('/dashboard')) {
+		return await updateSession(request)
+	}
 }
 
 export const config = {
