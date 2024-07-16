@@ -1,3 +1,4 @@
+import NavBar from '@/components/nav-bar'
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -15,5 +16,10 @@ export default async function Layout({
 		redirect('/auth/login')
 	}
 
-	return <>{children}</>
+	return (
+		<>
+			<NavBar />
+			{children}
+		</>
+	)
 }

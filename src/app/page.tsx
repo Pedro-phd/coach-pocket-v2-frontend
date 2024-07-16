@@ -15,7 +15,7 @@ const transition = {
 }
 
 export default function Home() {
-	const router = useRouter()
+	const { push } = useRouter()
 	return (
 		<>
 			<div className="px-6 md:px-0">
@@ -47,7 +47,7 @@ export default function Home() {
 								Seus alunos são a base do seu negócio, dê a eles uma plataforma que facilite a conquista do seus sonhos.
 							</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
-								<Button type="button" variant="brand" onClick={() => router.push('/dashboard/members')}>
+								<Button type="button" variant="brand" onClick={() => push('/dashboard/members')}>
 									Começar agora
 								</Button>
 							</div>

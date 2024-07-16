@@ -5,9 +5,9 @@ import { MotionConfig, motion } from 'framer-motion'
 import { Dumbbell, Gauge, User } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import type React from 'react'
 import { useRef, useState } from 'react'
 import useMeasure from 'react-use-measure'
+import { Button } from './ds'
 
 const transition = {
 	type: 'ease',
@@ -15,34 +15,10 @@ const transition = {
 	duration: 0.7,
 }
 
-function Button({
-	children,
-	onClick,
-	disabled,
-	ariaLabel,
-}: {
-	children: React.ReactNode
-	onClick?: () => void
-	disabled?: boolean
-	ariaLabel?: string
-}) {
-	return (
-		<button
-			className="relative flex h-9 w-9 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
-			type="button"
-			onClick={onClick}
-			disabled={disabled}
-			aria-label={ariaLabel}
-		>
-			{children}
-		</button>
-	)
-}
-
 export default function NavBar() {
-	const [isOpen, setIsOpen] = useState(false)
+	const [_, setIsOpen] = useState(false)
 	const containerRef = useRef<HTMLDivElement>(null)
-	const [contentRef, { width, height }] = useMeasure()
+	const [contentRef] = useMeasure()
 
 	const { push } = useRouter()
 
@@ -62,19 +38,16 @@ export default function NavBar() {
 					<motion.div initial={false}>
 						<div ref={contentRef} className="overflow-hidden p-2">
 							<div className="flex space-x-2">
-								<button
-									className="bg-brand relative flex h-9 w-9 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg text-zinc-500 transition-colors focus-visible:ring-2 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
-									type="button"
-								>
+								<div className="bg-brand relative flex h-9 w-9 shrink-0 scale-100 select-none appearance-none items-center justify-center rounded-lg text-zinc-500">
 									<Image alt="logo coach pocket" src={logo} width={24} height={24} />
-								</button>
-								<Button ariaLabel="Dashboard" onClick={() => push('/')}>
+								</div>
+								<Button variant="ghost" tooltip="Dashboard" onClick={() => push('#')}>
 									<Gauge className="h-5 w-5" />
 								</Button>
-								<Button ariaLabel="User members" onClick={() => push('/dashboard/members')}>
+								<Button variant="ghost" tooltip="Alunos" onClick={() => push('/dashboard/members')}>
 									<User className="h-5 w-5" />
 								</Button>
-								<Button ariaLabel="Workout">
+								<Button variant="ghost" tooltip="Treino">
 									<Dumbbell className="h-5 w-5" />
 								</Button>
 							</div>
