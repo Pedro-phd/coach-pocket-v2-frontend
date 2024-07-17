@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/react"
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,16 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			
+			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZTN4F0TRK" />
+			<Script>
+				{`
+				 	window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+
+					gtag('config', 'G-2ZTN4F0TRK');
+				`}
+			</Script>
 			<Analytics />
 			<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ?? ""} />
 			<TooltipProvider>
