@@ -25,7 +25,7 @@ export default async function Layout({
 	return (
 		<QueryProvider>
 			<HydrationBoundary state={dehydrate(queryClient)}>
-				<NavBar />
+				<NavBar user={user} />
 				{children}
 			</HydrationBoundary>
 		</QueryProvider>
