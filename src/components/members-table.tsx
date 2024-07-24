@@ -12,10 +12,11 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ds'
-import type { Member, MemberListing } from '@/domain/member/member'
+import type { MemberListing } from '@/domain/member/member'
 import formatDate from '@/lib/format-date'
-import { Link, PlusCircle } from 'lucide-react'
+import { Link } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import AddMember from './add-member'
 
 interface Props {
 	className?: string
@@ -32,10 +33,7 @@ export default function MembersTable(props: Props) {
 					<CardTitle>Alunos</CardTitle>
 					<CardDescription>Lista de alunos cadastrados.</CardDescription>
 				</div>
-				<Button variant="outline" className="gap-1">
-					<PlusCircle strokeWidth={1} />
-					<span className="hidden lg:flex">Adicionar aluno</span>
-				</Button>
+				<AddMember />
 			</CardHeader>
 			<CardContent>
 				<Table>

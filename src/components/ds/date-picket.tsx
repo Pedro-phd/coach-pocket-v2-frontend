@@ -15,6 +15,7 @@ interface Props {
 	placeholder?: string
 	value: Date | string
 	onChange: SelectSingleEventHandler
+	disabled?: boolean
 }
 
 export function DatePicker(props: Props) {
@@ -26,6 +27,7 @@ export function DatePicker(props: Props) {
 				<Button
 					variant={'outline'}
 					className={cn('w-[280px] h-[36px] justify-start text-left font-normal', !value && 'text-muted-foreground')}
+					disabled={props.disabled}
 				>
 					<CalendarIcon className="mr-2 h-4 w-4" />
 					{value ? format(value, 'PPP') : <span>{placeholder}</span>}

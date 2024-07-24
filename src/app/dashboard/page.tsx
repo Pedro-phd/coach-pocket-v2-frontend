@@ -1,7 +1,6 @@
 'use client'
-import { Button, Card, CardContent, CardHeader, CardTitle } from '@/components/ds'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ds'
 import MembersTable from '@/components/members-table'
-import { Plus, PlusCircle } from 'lucide-react'
 
 export default function DashboardPage() {
 	const data = [
@@ -55,7 +54,10 @@ export default function DashboardPage() {
 					Olá <span className="text-brand">Pedro</span>, seja bem vindo!
 				</h1>
 			</div>
-			<div className="lg:grid lg:grid-cols-6 gap-4">
+			<div className="lg:grid lg:grid-cols-6 gap-4 flex flex-col-reverse">
+				<div className="lg:col-span-5 mb-2 lg:mb-0">
+					<MembersTable data={data} />
+				</div>
 				<div className="flex flex-col items-center gap-2">
 					<Card className="w-full">
 						<CardHeader>
@@ -69,9 +71,6 @@ export default function DashboardPage() {
 						</CardHeader>
 						<CardContent>Lorem ipsum</CardContent>
 					</Card>
-				</div>
-				<div className="lg:col-span-5 mt-2 lg:mt-0">
-					<MembersTable data={data} />
 				</div>
 			</div>
 		</>
