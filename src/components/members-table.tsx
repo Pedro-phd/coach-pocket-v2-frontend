@@ -14,7 +14,7 @@ import {
 } from '@/components/ds'
 import type { Member, MemberListing } from '@/domain/member/member'
 import formatDate from '@/lib/format-date'
-import { Link } from 'lucide-react'
+import { Link, PlusCircle } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 interface Props {
@@ -27,9 +27,15 @@ export default function MembersTable(props: Props) {
 
 	return (
 		<Card className={props.className}>
-			<CardHeader>
-				<CardTitle>Alunos</CardTitle>
-				<CardDescription>Lista de alunos cadastrados.</CardDescription>
+			<CardHeader className="flex justify-between flex-row">
+				<div>
+					<CardTitle>Alunos</CardTitle>
+					<CardDescription>Lista de alunos cadastrados.</CardDescription>
+				</div>
+				<Button variant="outline" className="gap-1">
+					<PlusCircle strokeWidth={1} />
+					<span className="hidden lg:flex">Adicionar aluno</span>
+				</Button>
 			</CardHeader>
 			<CardContent>
 				<Table>

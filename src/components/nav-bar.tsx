@@ -5,7 +5,7 @@ import useClickOutside from '@/hooks/useClickOutside'
 import { cn } from '@/lib/utils'
 import type { User } from '@supabase/supabase-js'
 import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
-import { Dumbbell, Gauge, Users } from 'lucide-react'
+import { Apple, Dumbbell, Gauge, Users } from 'lucide-react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -78,13 +78,16 @@ export default function NavBar({ user }: NavBarProps) {
 							<Image alt="logo coach pocket" src={logo} width={24} height={24} />
 						</div>
 						<Button variant="ghost" tooltip="Dashboard" onClick={() => push('#')}>
-							<Gauge className="h-5 w-5" />
+							<Gauge className="h-5 w-5 opacity-75" />
 						</Button>
 						<Button variant="ghost" tooltip="Alunos" onClick={() => push('/dashboard/members')}>
-							<Users className="h-5 w-5" />
+							<Users className="h-5 w-5 opacity-75" />
 						</Button>
 						<Button variant="ghost" tooltip="Treino">
-							<Dumbbell className="h-5 w-5" />
+							<Dumbbell className="h-5 w-5 opacity-75" />
+						</Button>
+						<Button variant="ghost" tooltip="Comidas">
+							<Apple className="h-5 w-5 opacity-75" />
 						</Button>
 						<Button
 							variant="ghost"
