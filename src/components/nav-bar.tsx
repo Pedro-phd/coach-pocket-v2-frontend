@@ -42,7 +42,7 @@ export default function NavBar({ user }: NavBarProps) {
 			<motion.div
 				initial={{ y: 20, opacity: 0 }}
 				whileInView={{ y: 0, opacity: 1 }}
-				className="w-fit absolute bottom-9 right-0 left-0 mx-auto"
+				className="w-fit absolute bottom-6 right-0 left-0 mx-auto"
 			>
 				<div className="h-full w-full rounded-xl border border-zinc-950/10 bg-white" ref={containerRef}>
 					<div className="overflow-hidden">

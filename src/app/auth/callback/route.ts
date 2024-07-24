@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import { setCookie } from 'cookies-next'
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
@@ -7,7 +8,8 @@ export async function GET(request: Request) {
 
 	if (code) {
 		const supabase = createClient()
-		const { error } = await supabase.auth.exchangeCodeForSession(code)
+		const { error, data } = await supabase.auth.exchangeCodeForSession(code)
+		setCookie('token', data.session?.access_token)
 		if (!error) {
 			return NextResponse.redirect(`${origin}/dashboard`)
 		}

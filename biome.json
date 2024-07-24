@@ -7,15 +7,20 @@
 		"formatter": {
 			"semicolons": "asNeeded",
 			"quoteStyle": "single",
-			"lineWidth": 120
+			"lineWidth": 120,
+			"bracketSpacing": true
 		}
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"a11y": { "noSvgWithoutTitle": "off" },
+			"a11y": {
+				"noSvgWithoutTitle": "off"
+			},
 			"recommended": true,
-			"complexity": { "noForEach": "off" },
+			"complexity": {
+				"noForEach": "off"
+			},
 			"style": {
 				"noNonNullAssertion": "off"
 			}

@@ -8,6 +8,7 @@ interface MakeQueryProps {
 }
 
 export const makeQueryServer = async ({ key, path }: MakeQueryProps) => {
+	const API_URL = process.env.NEXT_PUBLIC_API_URL + path
 	let cookieStore: CookiesFn | undefined
 
 	if (typeof window === 'undefined') {
@@ -20,7 +21,7 @@ export const makeQueryServer = async ({ key, path }: MakeQueryProps) => {
 	return queryOptions({
 		queryKey: [key],
 		queryFn: async () => {
-			const response = await fetch(path, {
+			const response = await fetch(API_URL, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},
@@ -32,13 +33,14 @@ export const makeQueryServer = async ({ key, path }: MakeQueryProps) => {
 }
 
 export const makeQuery = ({ key, path }: MakeQueryProps) => {
+	const API_URL = process.env.NEXT_PUBLIC_API_URL + path
 	let cookieStore: CookiesFn | undefined
 	const token = getCookie('token', { cookies: cookieStore })
 
 	return queryOptions({
 		queryKey: [key],
 		queryFn: async () => {
-			const response = await fetch(path, {
+			const response = await fetch(API_URL, {
 				headers: {
 					Authorization: `Bearer ${token}`,
 				},

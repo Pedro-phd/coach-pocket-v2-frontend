@@ -12,12 +12,22 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ds'
+import type { Member, MemberListing } from '@/domain/member/member'
+import formatDate from '@/lib/format-date'
 import { Link } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
-export default function MembersTable(props: { className?: string }) {
+interface Props {
+	className?: string
+	data: MemberListing[]
+}
+
+export default function MembersTable(props: Props) {
+	const { push } = useRouter()
+
 	return (
 		<Card className={props.className}>
-			<CardHeader className="px-7">
+			<CardHeader>
 				<CardTitle>Alunos</CardTitle>
 				<CardDescription>Lista de alunos cadastrados.</CardDescription>
 			</CardHeader>
@@ -31,45 +41,23 @@ export default function MembersTable(props: { className?: string }) {
 						</TableRow>
 					</TableHeader>
 					<TableBody>
-						<TableRow>
-							<TableCell>
-								<div className="font-medium">Liam Johnson</div>
-								<div className="hidden text-sm text-muted-foreground md:inline">liam@example.com</div>
-							</TableCell>
-							<TableCell className="hidden sm:table-cell">10/10/2024</TableCell>
+						{props.data.map((m) => {
+							return (
+								<TableRow key={m.id}>
+									<TableCell>
+										<div className="font-medium">{m.name}</div>
+										<div className="hidden text-sm text-muted-foreground md:inline">{m.email}</div>
+									</TableCell>
+									<TableCell className="hidden sm:table-cell">{formatDate(m.updatedAt)}</TableCell>
 
-							<TableCell>
-								<Button variant="link" className="text-brand">
-									<Link className="size-4" />
-								</Button>
-							</TableCell>
-						</TableRow>
-						<TableRow>
-							<TableCell>
-								<div className="font-medium">Liam Johnson</div>
-								<div className="hidden text-sm text-muted-foreground md:inline">liam@example.com</div>
-							</TableCell>
-							<TableCell className="hidden sm:table-cell">10/10/2024</TableCell>
-
-							<TableCell>
-								<Button variant="link" className="text-brand">
-									<Link className="size-4" />
-								</Button>
-							</TableCell>
-						</TableRow>
-						<TableRow>
-							<TableCell>
-								<div className="font-medium">Liam Johnson</div>
-								<div className="hidden text-sm text-muted-foreground md:inline">liam@example.com</div>
-							</TableCell>
-							<TableCell className="hidden sm:table-cell">10/10/2024</TableCell>
-
-							<TableCell>
-								<Button variant="link" className="text-brand">
-									<Link className="size-4" />
-								</Button>
-							</TableCell>
-						</TableRow>
+									<TableCell>
+										<Button onClick={() => push(`/dashboard/members/${m.id}`)} size="default" className="text-brand">
+											<Link className="size-4" />
+										</Button>
+									</TableCell>
+								</TableRow>
+							)
+						})}
 					</TableBody>
 				</Table>
 			</CardContent>

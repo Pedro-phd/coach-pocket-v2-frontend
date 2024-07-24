@@ -6,7 +6,7 @@ import { Loader2 } from 'lucide-react'
 import * as React from 'react'
 
 const buttonVariants = cva(
-	'inline-flex items-center rounded-md px-2.5 py-1.5 text-sm justify-center font-medium disabled:pointer-events-none disabled:opacity-50',
+	'inline-flex items-center rounded-md py-1 px-3 text-sm justify-center font-medium disabled:pointer-events-none disabled:opacity-50',
 	{
 		variants: {
 			variant: {
@@ -21,7 +21,7 @@ const buttonVariants = cva(
 				brand: 'bg-brand text-white hover:bg-indigo-500',
 			},
 			size: {
-				default: 'px-[10px] py-[6px]',
+				default: 'py-1 px-3',
 			},
 		},
 		defaultVariants: {
