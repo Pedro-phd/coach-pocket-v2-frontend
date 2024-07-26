@@ -1,8 +1,8 @@
 'use client'
 
-import * as React from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
+import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -99,7 +99,7 @@ const DialogComponent = ({ trigger, title, content, open, onOpenChange, descript
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>{title}</DialogTitle>
-					<DialogDescription>{description}</DialogDescription>
+					<DialogDescription className="text-left">{description}</DialogDescription>
 				</DialogHeader>
 				{content}
 			</DialogContent>
@@ -109,14 +109,14 @@ const DialogComponent = ({ trigger, title, content, open, onOpenChange, descript
 
 export {
 	Dialog,
-	DialogPortal,
-	DialogOverlay,
-	DialogTrigger,
 	DialogClose,
-	DialogContent,
-	DialogHeader,
-	DialogFooter,
-	DialogTitle,
-	DialogDescription,
 	DialogComponent,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogOverlay,
+	DialogPortal,
+	DialogTitle,
+	DialogTrigger,
 }

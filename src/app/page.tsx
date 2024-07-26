@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { MotionConfig, motion } from 'framer-motion'
 import { Manrope } from 'next/font/google'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 const manrope = Manrope({ weight: ['700', '300', '500'], subsets: ['latin'] })
@@ -47,9 +48,11 @@ export default function Home() {
 								Seus alunos são a base do seu negócio, dê a eles uma plataforma que facilite a conquista do seus sonhos.
 							</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
-								<Button type="button" variant="brand" onClick={() => push('/dashboard/members')}>
-									Começar agora
-								</Button>
+								<Link href="/dashboard/members">
+									<Button type="button" variant="brand">
+										Começar agora
+									</Button>
+								</Link>
 							</div>
 						</div>
 					</main>

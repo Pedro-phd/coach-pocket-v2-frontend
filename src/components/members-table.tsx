@@ -39,9 +39,9 @@ export default function MembersTable(props: Props) {
 				<Table>
 					<TableHeader>
 						<TableRow>
-							<TableHead>Nome</TableHead>
+							<TableHead className="w-full sm:w-fit">Nome</TableHead>
 							<TableHead className="hidden sm:table-cell">Ultima atualização</TableHead>
-							<TableHead className="hidden md:table-cell">Ficha</TableHead>
+							<TableHead className="text-transparent md:table-cell">Ficha</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>
