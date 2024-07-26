@@ -12,10 +12,11 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ds'
-import type { Member, MemberListing } from '@/domain/member/member'
+import type { MemberListing } from '@/domain/member/member'
 import formatDate from '@/lib/format-date'
 import { Link } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import AddMember from './add-member'
 
 interface Props {
 	className?: string
@@ -27,17 +28,20 @@ export default function MembersTable(props: Props) {
 
 	return (
 		<Card className={props.className}>
-			<CardHeader>
-				<CardTitle>Alunos</CardTitle>
-				<CardDescription>Lista de alunos cadastrados.</CardDescription>
+			<CardHeader className="flex justify-between flex-row">
+				<div>
+					<CardTitle>Alunos</CardTitle>
+					<CardDescription>Lista de alunos cadastrados.</CardDescription>
+				</div>
+				<AddMember />
 			</CardHeader>
 			<CardContent>
 				<Table>
 					<TableHeader>
 						<TableRow>
-							<TableHead>Nome</TableHead>
+							<TableHead className="w-full sm:w-fit">Nome</TableHead>
 							<TableHead className="hidden sm:table-cell">Ultima atualização</TableHead>
-							<TableHead className="hidden md:table-cell">Ficha</TableHead>
+							<TableHead className="text-transparent md:table-cell">Ficha</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>

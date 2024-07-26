@@ -45,8 +45,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 						<div className="ml-auto bg-muted text-muted-foreground py-1 px-3 border-l flex items-center">{suffix}</div>
 					)}
 				</div>
-				{errorMessage && <p className="text-sm text-destructive">{errorMessage}</p>}
-				{!errorMessage && <p className="text-sm text-muted-foreground">{hint}</p>}
+				{errorMessage && <p className="text-sm text-destructive h-5">{errorMessage}</p>}
+				{!errorMessage && <p className="text-sm text-muted-foreground h-5">{hint}</p>}
 			</div>
 		)
 	},

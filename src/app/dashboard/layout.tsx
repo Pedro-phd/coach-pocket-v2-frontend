@@ -32,7 +32,7 @@ export default async function Layout({
 			<SetAuthCookie token={session?.access_token} />
 			<HydrationBoundary state={dehydrate(queryClient)}>
 				<NavBar user={user} />
-				{children}
+				<div className="p-5">{children}</div>
 			</HydrationBoundary>
 		</QueryProvider>
 	)
