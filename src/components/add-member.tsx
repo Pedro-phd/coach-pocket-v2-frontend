@@ -105,7 +105,6 @@ export default function AddMember() {
 											placeholder="Aniversário"
 											value={field.value}
 											onChange={field.onChange}
-											disabled={isPending}
 											errorMessage={errors.birth_date?.message}
 										/>
 									)

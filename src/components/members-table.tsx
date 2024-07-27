@@ -49,7 +49,7 @@ export default function MembersTable(props: Props) {
 							return (
 								<TableRow key={m.id}>
 									<TableCell>
-										<div className="font-medium">{m.name}</div>
+										<div className="font-medium capitalize">{m.name}</div>
 										<div className="hidden text-sm text-muted-foreground md:inline">{m.email}</div>
 									</TableCell>
 									<TableCell className="hidden sm:table-cell">{formatDate(m.updatedAt)}</TableCell>

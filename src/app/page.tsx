@@ -48,7 +48,7 @@ export default function Home() {
 								Seus alunos são a base do seu negócio, dê a eles uma plataforma que facilite a conquista do seus sonhos.
 							</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
-								<Link href="/dashboard/members">
+								<Link href="/dashboard/members" prefetch={false}>
 									<Button type="button" variant="brand">
 										Começar agora
 									</Button>

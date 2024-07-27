@@ -1,5 +1,6 @@
 import NavBar from '@/components/nav-bar'
 import { getQueryClient } from '@/lib/get-query-client'
+import { makeQueryServer } from '@/lib/make-query'
 import QueryProvider from '@/lib/query-provider'
 import SetAuthCookie from '@/lib/set-cookie'
 import { createClient } from '@/lib/supabase/server'
@@ -26,6 +27,7 @@ export default async function Layout({
 	}
 
 	const queryClient = getQueryClient()
+	void queryClient.prefetchQuery(await makeQueryServer({ key: 'members', path: '/members' }))
 
 	return (
 		<QueryProvider>

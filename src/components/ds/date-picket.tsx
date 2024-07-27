@@ -33,7 +33,7 @@ export function DatePicker(props: Props) {
 					)}
 					disabled={props.disabled}
 				>
-					{value ? format(value, 'PPP') : <span className="text-muted-foreground">{placeholder}</span>}
+					{value ? format(value, 'PPP') : <span className="text-zinc-400">{placeholder}</span>}
 					<CalendarIcon className="h-4 w-4" />
 				</Button>
 			</PopoverTrigger>
