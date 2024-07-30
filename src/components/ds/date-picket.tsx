@@ -38,7 +38,7 @@ export function DatePicker(props: Props) {
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="w-auto p-0">
-				<Calendar locale={ptBR} mode="single" selected={new Date(value)} onSelect={onChange} initialFocus />
+				<Calendar locale={ptBR} mode="single" selected={new Date(value)} onSelect={onChange} />
 			</PopoverContent>
 			{<p className="text-sm text-destructive h-5">{errorMessage}</p>}
 		</Popover>
