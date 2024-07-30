@@ -7,7 +7,7 @@ export const CreateMemberSchema = z.object({
 		const replacedDoc = doc.replace(/\D/g, '')
 		return replacedDoc.length === 11 || replacedDoc.length === 14
 	}, 'Documento deve ter 11 ou 14 caracteres.'),
-	birth_date: z.date({ message: 'Data de aniversário é obrigatório' }),
+	birth_date: z.date({ message: 'Aniversário é obrigatório' }),
 	height: z.coerce.number().min(1, { message: 'Altura é obrigatório' }),
 	weight: z.coerce.number().min(1, { message: 'Peso é obrigatório' }),
 	zipcode: z.string().optional(),

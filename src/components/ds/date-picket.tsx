@@ -8,12 +8,17 @@ import { Button } from '@/components/ds'
 import { Calendar } from '@/components/ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
-import type { SelectSingleEventHandler } from 'react-day-picker'
+import type { Modifiers } from 'react-day-picker'
 
 interface Props {
 	placeholder?: string
 	value: Date | string
-	onChange: SelectSingleEventHandler
+	onChange: (
+		selected: Date | undefined,
+		triggerDate: Date,
+		modifiers: Modifiers,
+		e: React.MouseEvent | React.KeyboardEvent,
+	) => void
 	disabled?: boolean
 	errorMessage?: string
 }
@@ -33,12 +38,12 @@ export function DatePicker(props: Props) {
 					)}
 					disabled={props.disabled}
 				>
-					{value ? format(value, 'PPP') : <span className="text-zinc-400">{placeholder}</span>}
+					{value ? format(value, 'dd/MM/yyyy') : <span className="text-zinc-400">{placeholder}</span>}
 					<CalendarIcon className="h-4 w-4" />
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="w-auto p-0">
-				<Calendar locale={ptBR} mode="single" selected={new Date(value)} onSelect={onChange} initialFocus />
+				<Calendar locale={ptBR} mode="single" selected={new Date(value)} onSelect={onChange} />
 			</PopoverContent>
 			{<p className="text-sm text-destructive h-5">{errorMessage}</p>}
 		</Popover>
