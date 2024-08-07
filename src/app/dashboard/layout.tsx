@@ -7,6 +7,8 @@ import { createClient } from '@/lib/supabase/server'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { redirect } from 'next/navigation'
 
+export const maxDuration = 60
+
 export default async function Layout({
 	children,
 }: Readonly<{

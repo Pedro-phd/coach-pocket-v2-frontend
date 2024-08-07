@@ -1,7 +1,9 @@
 import { updateSession } from '@/lib/supabase/middleware'
 import { createClient } from '@/lib/supabase/server'
-import { getCookie, getCookies, setCookie } from 'cookies-next'
+import { setCookie } from 'cookies-next'
 import { type NextRequest, NextResponse } from 'next/server'
+
+export const maxDuration = 60
 
 export async function middleware(request: NextRequest) {
 	const response = NextResponse.next()
