@@ -4,12 +4,12 @@ import { MembersCountChart } from '@/components/members-count-chart'
 import MembersTable from '@/components/members-table'
 import { Separator } from '@/components/ui/separator'
 import { makeQuery } from '@/lib/make-query'
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 
 export const maxDuration = 60
 
 export default function DashboardPage() {
-	const { data } = useSuspenseQuery(makeQuery({ key: 'members', path: '/members' }))
+	const { data } = useQuery(makeQuery({ key: 'members', path: '/members' }))
 	return (
 		<div className="flex flex-col gap-4 md:gap-6">
 			<div>

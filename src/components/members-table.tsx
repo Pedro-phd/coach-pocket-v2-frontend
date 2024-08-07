@@ -45,7 +45,7 @@ export default function MembersTable(props: Props) {
 						</TableRow>
 					</TableHeader>
 					<TableBody>
-						{props.data.map((m) => {
+						{props.data?.map((m) => {
 							return (
 								<TableRow key={m.id}>
 									<TableCell>
